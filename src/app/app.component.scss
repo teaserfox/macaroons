@@ -25,6 +25,7 @@
   list-style: none;
   display: flex;
   gap: 40px;
+  cursor: pointer;
 }
 
 .menu__link {
@@ -101,6 +102,11 @@
   transition: 0.5s;
 }
 
+.main__img {
+  display: grid;
+  place-items: center;
+}
+
 .main__img-one {
   position: relative;
   z-index: 1;
@@ -117,8 +123,6 @@
   border-radius: 50%;
   z-index: 0;
   animation: pulse 3s infinite;
-  right: 160px;
-  top: 260px;
 }
 
 .main__img::after {

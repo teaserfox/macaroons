@@ -27,9 +27,21 @@
                                 </svg>
         </div>
         <ul class="menu__list">
-          <li><a class="menu__link" href="#">Пироженки</a></li>
-          <li><a class="menu__link" href="#">О нас</a></li>
-          <li><a class="menu__link">Оформить заказ</a></li>
+          <li>
+            <div class="menu__link" (click)="scrollTo(shopElement)">
+              Пироженки
+            </div>
+          </li>
+          <li>
+            <div class="menu__link" (click)="scrollTo(advantageElement)">
+              О нас
+            </div>
+          </li>
+          <li>
+            <div class="menu__link" (click)="scrollTo(orderElement)">
+              Оформить заказ
+            </div>
+          </li>
         </ul>
       </nav>
       <div class="phone">
@@ -55,7 +67,7 @@
     </div>
   </div>
 </section>
-<section class="advantage">
+<section class="advantage" #advantageElement>
   <div class="container container__advantage">
     <div class="advantage__thing">
       <h2 class="thing__title">
