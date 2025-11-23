@@ -11,12 +11,13 @@ import {FormValueType} from "./types/form-value.type";
 export class AppComponent {
   @ViewChild('shopElement') shopElement!: ElementRef<HTMLElement>;
 
-  public headerPhone: string = '+375 (29) 368-98-68';
-  public footerInstagram: string = 'https://instagram.com';
-  public showPresent: boolean = false;
-  public shops: ShopType[] = [];
+  headerPhone: string = '+375 (29) 368-98-68';
+  footerInstagram: string = 'https://instagram.com';
+  showPresent: boolean = false;
+  shops: ShopType[] = [];
+  hoverGradient: string = 'linear-gradient(90deg, rgb(252,252,252) 0%, rgb(215,72,92) 100%)';
 
- public advantages: AdvantageType[] = [
+ advantages: AdvantageType[] = [
    {
      title: 'Лучшие продукты',
      desc: 'Мы честно готовим макаруны только из натуральных и качественных продуктов. Мы не используем\n' +
@@ -63,7 +64,7 @@ export class AppComponent {
     const hours: number = now.getHours();
 
     // Показываем подарок с 00:00 до 05:00
-    this.showPresent = hours >= 0 && hours < 5;
+    this.showPresent = hours >= 0 && hours < 7;
   }
 
   public formValues: FormValueType = {

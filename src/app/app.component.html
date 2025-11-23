@@ -57,7 +57,9 @@
         Побалуйте себя и своих близких самыми вкусными и ароматными домашними пироженками Macaroon!
       </p>
       <div class="main__info_actions">
-        <button class="btn main__info-btn" (click)="scrollToShop()">
+        <button class="btn main__info-btn" btnHover
+                [btnHover]="hoverGradient"
+                (click)="scrollToShop()">
           Выбрать макарун
         </button>
       </div>
@@ -116,7 +118,9 @@
             <p class="quantity">1 шт.</p>
             <p class="price">{{item.price| number:'1.2-2'}} руб.</p>
           </div>
-          <button class="btn shop__item-btn" (click)="addToCard(item, orderElement)">Заказать</button>
+          <button class="btn shop__item-btn"
+                  [btnHover]="hoverGradient"
+                  (click)="addToCard(item, orderElement)">Заказать</button>
         </div>
       </div>
     </div>
@@ -145,7 +149,9 @@
         </p>
         <input type="text" placeholder="Ваше имя" [(ngModel)]="formValues.name">
         <input type="tel" placeholder="+375 (__) ___ - __ - __" [(ngModel)]="formValues.phone">
-        <button class="btn order__input-btn" (click)="createOrder()">
+        <button class="btn order__input-btn"
+                [btnHover]="hoverGradient"
+                (click)="createOrder()">
           Оформить заказ
         </button>
       </div>
@@ -174,6 +180,6 @@
       Оформите заказ
       и получите подарок!
     </div>
-    <img src="assets/img/present.png" alt="present" class="gift-box">
+    <img src="assets/img/cart.png" alt="present" class="gift-box">
   </div>
 </footer>
