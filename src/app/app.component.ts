@@ -1,5 +1,4 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
-import {AdvantageType} from "./types/advantage.type";
 import {ShopType} from "./types/shop.type";
 import {FormValueType} from "./types/form-value.type";
 
@@ -8,54 +7,35 @@ import {FormValueType} from "./types/form-value.type";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent {
   @ViewChild('shopElement') shopElement!: ElementRef<HTMLElement>;
 
   headerPhone: string = '+375 (29) 368-98-68';
   footerInstagram: string = 'https://instagram.com';
   showPresent: boolean = false;
-  shops: ShopType[] = [];
   hoverGradient: string = 'linear-gradient(90deg, rgb(252,252,252) 0%, rgb(215,72,92) 100%)';
 
- advantages: AdvantageType[] = [
-   {
-     title: 'Лучшие продукты',
-     desc: 'Мы честно готовим макаруны только из натуральных и качественных продуктов. Мы не используем\n' +
-       'консерванты, ароматизаторы и красители.'
-   },
-   {
-     title: ' Много вкусов',
-     desc: 'Наша задача – предоставить вам широкое разнобразие вкусов. Вы удивитесь, но у нас более 70 вкусов\n' +
-     'пироженок.'
-   },
-   {
-     title: 'Бисквитное тесто',
-     desc: 'Все пирожные готовятся на бисквитном тесте с качественным сливочным маслом 82,5%. В составе нет\n' +
-     'маргарина и дрожжей!'
-   },
-   {
-     title: 'Честный продукт',
-     desc: 'Вкус, качество и безопасность наших пирогов подтверждена декларацией о соответствии, которую мы получили\n' +
-     '22.06.2016 г.'
-   },
- ];
+  shops: ShopType[] = [
+    {
+      img: '1.png',
+      title: 'Макарун с малиной',
+    },
+    {
+      img: '2.png',
+      title: 'Макарун с манго',
+    },
+    {
+      img: '3.png',
+      title: 'Пирог с ванилью',
+    },
+    {
+      img: '4.png',
+      title: 'Пирог с фисташками'
+    }
+  ];
 
   ngOnInit(): void {
-    const titles: string[] = [
-      'Макарун с малиной',
-      'Макарун с манго',
-      'Пирог с ванилью',
-      'Пирог с фисташками'
-    ];
-
-    const prices: number[] = [1.70, 1.70, 1.70, 1.70,];
-
-    this.shops = titles.map((title: string, index: number): ShopType => ({
-      img: `${index + 1}.png`,
-      title,
-      price: prices[index]
-    }));
-
     this.checkPresentTime();
   }
 

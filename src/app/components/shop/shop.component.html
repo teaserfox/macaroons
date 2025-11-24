@@ -1,0 +1,16 @@
+<img src="assets/img/{{shop.img}}" alt="red macaroon" class="shop__item-img">
+<h3 class="shop__item-title">
+  {{ shop.title }}
+</h3>
+<div class="shop__details">
+  <div class="shop__details-info">
+    <p class="quantity">1 шт.</p>
+    <p class="price">1,70 руб.</p>
+  </div>
+  <button class="btn shop__item-btn"
+          [btnHover]="hoverGradient"
+          (click)="addProductToCard()">Заказать
+  </button>
+</div>
+
+

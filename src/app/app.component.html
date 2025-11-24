@@ -70,37 +70,7 @@
   </div>
 </section>
 <section class="advantage" #advantageElement>
-  <div class="container container__advantage">
-    <div class="advantage__thing">
-      <h2 class="thing__title">
-        Мы печём для вас
-        вкуснейшие макаруны
-        уже более 10 лет
-      </h2>
-      <p class="thing__desc">
-        Все пироженки мы готовим только из натуральных и качественных продуктов, без консервантов,
-        ароматизаторов, красителей. Используем в приготовлении сливочное масло 82,5%, без дрожжей,
-        маргарина,
-        разрыхлителей и улучшителей муки.
-      </p>
-    </div>
-    <div class="advantage__img">
-      <img src="assets/img/two.png" alt="macaroon" class="advantage__img-two">
-    </div>
-    <div class="advantage__item one" *ngFor="let advantage of advantages; let i = index;">
-      <div class="circle">
-        <div class="num">
-          {{i+1}}
-        </div>
-      </div>
-      <h3 class="advantage__title">
-        {{advantage.title}}
-      </h3>
-      <p class="advantage__desc">
-        {{advantage.desc}}
-      </p>
-    </div>
-  </div>
+  <advantage></advantage>
 </section>
 <section class="shop" #shopElement>
   <div class="container container__shop">
@@ -108,21 +78,7 @@
       Выберите свой макарун
     </h2>
     <div class="shop__items">
-      <div class="shop__item" *ngFor="let item of shops;">
-        <img src="assets/img/{{item.img}}" alt="red macaroon" class="shop__item-img">
-        <h3 class="shop__item-title">
-          {{item.title}}
-        </h3>
-        <div class="shop__details">
-          <div class="shop__details-info">
-            <p class="quantity">1 шт.</p>
-            <p class="price">{{item.price| number:'1.2-2'}} руб.</p>
-          </div>
-          <button class="btn shop__item-btn"
-                  [btnHover]="hoverGradient"
-                  (click)="addToCard(item, orderElement)">Заказать</button>
-        </div>
-      </div>
+      <shop class="shop__item" *ngFor="let shop of shops;" [shop]="shop" [orderElement]="orderElement" [hoverGradient]="hoverGradient"></shop>
     </div>
   </div>
 </section>
@@ -143,7 +99,8 @@
         <p class="input-text">
           Ваш выбор
         </p>
-        <input class="input-one" type="text" placeholder="Напишите, что хотите заказать..." [(ngModel)]="formValues.itemTitle">
+        <input class="input-one" type="text" placeholder="Напишите, что хотите заказать..."
+               [(ngModel)]="formValues.itemTitle">
         <p class="input-text">
           Заполните данные для заказа
         </p>
@@ -169,7 +126,7 @@
       <img src="assets/img/instagram.png" alt="instagram">
       <a href="{{footerInstagram}}" target="_blank">
         <p>Мы в Instagram</p>
-        </a>
+      </a>
     </div>
     <div class="phone">
       {{ headerPhone }}

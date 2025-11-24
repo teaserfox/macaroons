@@ -1,0 +1,47 @@
+
+.shop__item-img {
+  position: absolute;
+  left: 38px; top: -58px;
+}
+
+.shop__item-title {
+  font-size: 18px;
+  font-family: Tavolga, sans-serif;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding-top: 109px;
+  margin-bottom: 26px;
+}
+
+.shop__details {
+  display: flex;
+  padding: 0 21px 0 20px;
+  justify-content: space-between;
+}
+
+.quantity {
+  font-size: 15px;
+  font-family: MyriadPro, sans-serif;
+  color: rgb(255, 255, 255);
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.price {
+  font-size: 15px;
+  color: rgb(255, 255, 255);
+  text-align: left;
+}
+
+.shop__item-btn {
+  font-size: 16px;
+  font-family: GilroyExtraBold, sans-serif;
+  color: rgb(255, 255, 255);
+  padding: 19px 28px 19px 28px;
+}
+
+.shop__item:hover .shop__item-img {
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+

@@ -5,11 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {FormsModule} from "@angular/forms";
 import { BtnHoverDirective } from './directives/btn-hover.directive';
+import { AdvantageComponent } from './components/advantage/advantage.component';
+import { ShopComponent } from './components/shop/shop.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BtnHoverDirective
+    BtnHoverDirective,
+    AdvantageComponent,
+    ShopComponent
   ],
   imports: [
     BrowserModule,
