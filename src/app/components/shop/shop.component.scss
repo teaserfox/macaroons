@@ -1,3 +1,10 @@
+//.shop__item {
+//  position: relative;
+//  border: 2px solid white;
+//  border-radius: 20px;
+//  width: 263px;
+//  height: 229px;
+//}
 
 .shop__item-img {
   position: absolute;
@@ -40,8 +47,4 @@
   padding: 19px 28px 19px 28px;
 }
 
-.shop__item:hover .shop__item-img {
-  transform: scale(1.1);
-  transition: 0.5s;
-}
 

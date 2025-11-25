@@ -11,7 +11,7 @@ import {FormValueType} from "./types/form-value.type";
 export class AppComponent {
   @ViewChild('shopElement') shopElement!: ElementRef<HTMLElement>;
 
-  headerPhone: string = '+375 (29) 368-98-68';
+  headerPhone: string = '375293689868';
   footerInstagram: string = 'https://instagram.com';
   showPresent: boolean = false;
   hoverGradient: string = 'linear-gradient(90deg, rgb(252,252,252) 0%, rgb(215,72,92) 100%)';
@@ -20,18 +20,22 @@ export class AppComponent {
     {
       img: '1.png',
       title: 'Макарун с малиной',
+      price: 1.70,
     },
     {
       img: '2.png',
       title: 'Макарун с манго',
+      price: 1.70,
     },
     {
       img: '3.png',
       title: 'Пирог с ванилью',
+      price: 1.70,
     },
     {
       img: '4.png',
-      title: 'Пирог с фисташками'
+      title: 'Пирог с фисташками',
+      price: 1.70,
     }
   ];
 
@@ -44,7 +48,7 @@ export class AppComponent {
     const hours: number = now.getHours();
 
     // Показываем подарок с 00:00 до 05:00
-    this.showPresent = hours >= 0 && hours < 7;
+    this.showPresent = hours >= 7 && hours < 23;
   }
 
   public formValues: FormValueType = {
@@ -61,9 +65,9 @@ export class AppComponent {
     this.shopElement.nativeElement.scrollIntoView({ behavior: 'smooth' });
   }
 
-  public addToCard(item: ShopType, target: HTMLElement): void {
-    this.scrollTo(target);
-    this.formValues.itemTitle = item.title.toUpperCase();
+  public addToCard(event: { title: string, target: HTMLElement }): void {
+    this.scrollTo(event.target);
+    this.formValues.itemTitle = event.title.toUpperCase();
   }
 
   public createOrder(): void {

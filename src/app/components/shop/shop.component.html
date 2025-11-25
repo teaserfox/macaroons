@@ -5,7 +5,7 @@
 <div class="shop__details">
   <div class="shop__details-info">
     <p class="quantity">1 шт.</p>
-    <p class="price">1,70 руб.</p>
+    <p class="price">{{shop.price | currency:'RUB':' ':'1.2-2'}} руб</p>
   </div>
   <button class="btn shop__item-btn"
           [btnHover]="hoverGradient"

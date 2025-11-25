@@ -22,16 +22,17 @@ export class ShopComponent implements OnInit {
   @Input() orderElement!: HTMLElement;
   @Input() hoverGradient!: string;
 
-  @Output() addToCardEvent = new EventEmitter<[string, HTMLElement]>();
+  @Output() addToCardEvent = new EventEmitter<{title:string; target:HTMLElement;}>();
 
   addProductToCard(): void {
-    this.addToCardEvent.emit([this.shop.title, this.orderElement]);
+    this.addToCardEvent.emit({title: this.shop.title, target: this.orderElement});
   }
 
   constructor() {
     this._shop = {
       img: '',
       title: '',
+      price: 0,
     }
   }
 
