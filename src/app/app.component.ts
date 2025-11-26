@@ -1,17 +1,19 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
 import {ShopType} from "./types/shop.type";
 import {FormValueType} from "./types/form-value.type";
-import {BasketService} from "./servises/basket.service";
+import {BasketService} from "./services/basket.service";
+import {ShopService} from "./services/shop.service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  providers: [ShopService]
 })
 
 export class AppComponent {
 
-  constructor(public basketService: BasketService) {
+  constructor(public basketService: BasketService, private shopService: ShopService) {
   }
 
   @ViewChild('shopElement') shopElement!: ElementRef<HTMLElement>;
@@ -23,31 +25,11 @@ export class AppComponent {
   public isBasketOpened: boolean = false;
 
 
-  shops: ShopType[] = [
-    {
-      img: '1.png',
-      title: 'Макарун с малиной',
-      price: 1.70,
-    },
-    {
-      img: '2.png',
-      title: 'Макарун с манго',
-      price: 1.70,
-    },
-    {
-      img: '3.png',
-      title: 'Пирог с ванилью',
-      price: 1.70,
-    },
-    {
-      img: '4.png',
-      title: 'Пирог с фисташками',
-      price: 1.70,
-    }
-  ];
+  shops: ShopType[] = [];
 
   ngOnInit(): void {
     this.checkPresentTime();
+    this.shops = this.shopService.getShops();
   }
 
   private checkPresentTime(): void {
@@ -58,21 +40,21 @@ export class AppComponent {
     this.showPresent = hours >= 3 && hours < 23;
   }
 
-  public formValues: FormValueType = {
+  formValues: FormValueType = {
     itemTitle: '',
     name: '',
     phone: ''
   }
 
-  public scrollTo(target: HTMLElement): void {
+  scrollTo(target: HTMLElement): void {
     target.scrollIntoView({behavior: 'smooth'});
   }
 
-  public scrollToShop(): void {
+  scrollToShop(): void {
     this.shopElement.nativeElement.scrollIntoView({ behavior: 'smooth' });
   }
 
-  public addToCard(event: { title: string, target: HTMLElement, price: number }): void {
+  addToCard(event: { title: string, target: HTMLElement, price: number }): void {
     this.scrollTo(event.target);
     this.formValues.itemTitle = event.title.toUpperCase();
     this.basketService.count++;
@@ -80,7 +62,7 @@ export class AppComponent {
     this.isBasketOpened = true;
   }
 
-  public createOrder(): void {
+  createOrder(): void {
     if (!this.formValues.itemTitle) {
       alert('сделайте выбор');
       return;
