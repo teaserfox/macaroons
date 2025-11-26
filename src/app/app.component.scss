@@ -285,6 +285,20 @@ input::placeholder {
   background-image: radial-gradient(50% 50%, #71081e, #d7485c);
   right: 30px; bottom: 30px;
   z-index: 2;
+  display: grid;
+  justify-content: end;
+}
+
+.basket {
+  border: 1px solid white;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  display: grid;
+  place-items: center;
+  background: #ffefef;
+  color: rgb(119, 10, 29);
+
 }
 
 .gift-box {
@@ -308,6 +322,13 @@ input::placeholder {
   font-size: 15px;
   color: rgb(119, 10, 29);
   transition: 1s;
+}
+
+.block.active {
+  opacity: 1;
+  pointer-events: auto;
+  padding: 25px;
+  top: 18px;
 }
 
 .block::before {
@@ -335,6 +356,10 @@ input::placeholder {
 
 .present:hover .block {
   top: 0;
+  opacity: 1;
+}
+
+.present:hover .block.active {
   opacity: 1;
 }
 

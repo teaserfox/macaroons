@@ -45,7 +45,7 @@
         </ul>
       </nav>
       <div class="phone">
-        {{headerPhone | phoneFormat}}
+        {{ headerPhone | phoneFormat }}
       </div>
     </div>
   </header>
@@ -78,7 +78,8 @@
       Выберите свой макарун
     </h2>
     <div class="shop__items">
-      <shop class="shop__item" *ngFor="let shop of shops;" [shop]="shop" [orderElement]="orderElement" [hoverGradient]="hoverGradient"  (addToCardEvent)="addToCard($event)"
+      <shop class="shop__item" *ngFor="let shop of shops;" [shop]="shop" [orderElement]="orderElement"
+            [hoverGradient]="hoverGradient" (addToCardEvent)="addToCard($event)"
       ></shop>
     </div>
   </div>
@@ -134,9 +135,17 @@
     </div>
   </div>
   <div class="present" *ngIf="showPresent">
-    <div class="block">
-      Оформите заказ
-      и получите подарок!
+    <div class="basket">{{ basketService.count }}</div>
+    <div class="block" [class.active]="isBasketOpened">
+      <ng-container *ngIf="isBasketOpened">
+        <div>
+          Сумма: {{ basketService.total | currency:'RUB':'symbol':'1.2-2' }}
+        </div>
+      </ng-container>
+      <ng-container *ngIf="!isBasketOpened">
+        Оформите заказ
+        и получите подарок!
+      </ng-container>
     </div>
     <img src="assets/img/cart.png" alt="present" class="gift-box">
   </div>
